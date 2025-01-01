@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SD STEEL - Strength in Every Structure</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+    <style>
+        /* Basic Reset */         
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #F9F9F9; /* Soft White Background */
+            color: #333333; /* Dark Gray Text */
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+		
+        /* Navigation Bar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.9); /* Light nav background */
+            padding: 20px 40px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-bottom: 2px solid #007B7F; /* Deep Teal border */
+        }
+
+        nav a {
+            color: #333333; /* Dark links */
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            transition: color 0.3s, text-shadow 0.3s;
+        }
+
+        nav a:hover {
+            color: #007B7F; /* Deep Teal on hover */
+            text-shadow: 0 0 10px #007B7F;
+            transform: scale(1.1);
+        }
+
+        /* Header Section */
+        header {
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, rgba(0, 123, 127, 0.8), rgba(230, 230, 250, 0.5)); /* Deep Teal to Soft Lavender Gradient */
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+            text-align: center;
+            position: relative;
+            padding: 20px;
+            box-shadow: inset 0 0 200px rgba(0, 0, 0, 0.1);
+            perspective: 1000px; /* Perspective for 3D effect */
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 7rem;
+            font-weight: bold;
+            color: #007B7F; /* Deep Teal for the header */
+            text-shadow: 0 0 20px rgba(0, 123, 127, 0.5); /* Light effect */
+            margin-bottom: 15px;
+            letter-spacing: 2px; /* Spacing for a more dynamic look */
+            animation: typing 4s steps(30, end), blink-caret 0.75s step-end infinite; /* Typing effect */
+            white-space: nowrap; /* Prevent wrapping */
+            overflow: hidden; /* Hide overflow */
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent; }
+            50% { border-color: #007B7F; }
+        }
+
+        header p {
+            font-size: 2rem;
+            color: #333333; /* Dark Gray for the header subtitle */
+            margin-top: 15px;
+            text-shadow: 0 0 10px rgba(0, 123, 127, 0.5); /* Light effect */
+        }
+
+        /* Section Styles */
+        section {
+            padding:  60px 40px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.95); /* Light section background */
+            color: #333333; /* Darker text color */
+            border-radius: 15px;
+            margin: 40px auto;
+            max-width: 1200px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        section:hover {
+            transform: scale(1.02);
+        }
+
+        section h2 {
+            color: #007B7F; /* Deep Teal for section headers */
+            font-size: 3rem;
+            text-transform: uppercase;
+            text-shadow: 0 0 10px rgba(0, 123, 127, 0.5); /* Light effect */
+        }
+
+        section p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        /* Product Section */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Responsive grid layout */
+            gap: 30px; /* Increased space between product cards */
+            padding: 30px;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.9); /* Light product card background */
+            color: #333333; /* Darker text color */
+            border-radius: 15px;
+            border: 1px solid #007B7F; /* Deep Teal border */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1); /* Deeper shadow for luxury feel */
+            overflow: hidden;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            text-align: center; /* Center text */
+            perspective: 1000px; /* Perspective for 3D effect */
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px) rotateY(5deg); /* Lift effect on hover */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+        }
+
+        .image-container {
+            position: relative; /* Position relative for overlay effect */
+            overflow: hidden; /* Hide overflow for rounded corners */
+            border-radius: 15px 15px 0 0; /* Rounded top corners */
+        }
+
+        .product-card img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.3s ease;
+            border-bottom: 5px solid #007B7F; /* Deep Teal bottom border for separation */
+        }
+
+        /* Increase the image size on hover */
+        .product-card img:hover {
+            transform: scale(1.1);
+        }
+
+        .product-card h3 {
+            margin-top: 15px;
+            font-size: 1.5rem; /* Slightly larger font size */
+            color: #007B7F; /* Deep Teal for product titles */
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(0, 123, 127, 0.5); /* Light effect */
+        }
+
+        /* Add a luxurious overlay effect */
+        .image-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3); /* Dark overlay */
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .image-container:hover::after {
+            opacity: 1; /* Show overlay on hover */
+        }
+
+        .contact-number {
+            display: none; /* Initially hidden */
+            font-size: 1.2rem;
+            color: #007B7F; /* Deep Teal for contact number */
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.9); /* Light footer background */
+            text-align: center;
+            color: #333333; /* Darker text color */
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top ```html
+: 40px;
+            clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+        }
+
+        footer a {
+            color: #007B7F; /* Deep Teal for footer links */
+            text-decoration: none;
+            font-weight: bold;
+            transition: text-shadow 0.3s;
+        }
+
+        footer a:hover {
+            text-shadow: 0 0 15px rgba(0, 123, 127, 0.5);
+        }
+
+        /* Contact Section */
+        .contact-info {
+            text-align: center;
+            padding: 60px 40px;
+            background: rgba(255, 255, 255, 0.95); /* Light contact section */
+            color: #333333; /* Darker text color */
+            border-radius: 15px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            margin: 40px auto;
+            max-width: 1000px;
+        }
+
+        .contact-info h2 {
+            font-size: 3rem;
+            color: #007B7F; /* Deep Teal for contact section header */
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(0, 123, 127, 0.5); /* Light effect */
+        }
+
+        .contact-info p {
+            font-size: 1.5rem;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .contact-info .phone-numbers {
+            font-size: 1.4rem;
+            font-weight: bold;
+            color: #007B7F; /* Deep Teal for phone numbers */
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#products">Products</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <header id="home">
+        <h1>SD STEEL</h1>
+        <p>Strength in Every Structure</p>
+    </header>
+
+    <section id="about">
+        <h2>About Us</h2>
+        <p>SD STEEL is a leader in providing top-quality steel products and solutions. With a focus on innovation, reliability, and customer satisfaction, we aim to build the future with strength and precision.</p>
+    </section>
+
+    <section id="products">
+        <h2>Our Products</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <div class="image-container" onclick="showContactNumber(this)">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0045.jpg" alt="SS Steel Railings">
+                    <div class="contact-number">Contact: 9375122444</div>
+                </div>
+                <h3>SS Steel Railings</h3>
+                <div class="image-options">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0070.jpg" alt="Railing Option 1">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0069.jpg" alt="Railing Option 2">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0068.jpg" alt="Railing Option 3">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0062.jpg" alt="Railing Option 4">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0060.jpg" alt="Railing Option 5">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0051.jpg" alt="Railing Option 6">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0050.jpg" alt="Railing Option 7">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0047.jpg" alt="Railing Option 8">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0039.jpg" alt="Railing Option 9">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0035.jpg" alt="Railing Option 10">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0034.jpg" alt="Railing Option 11">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0033.jpg" alt="Railing Option 12">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0030.jpg" alt="Railing Option 13">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0027.jpg" alt="Railing Option 14">
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="image-container" onclick="showContactNumber(this)">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0023.jpg" alt="SS Steel Luxury Glass Railings">
+                    <div class="contact-number">Contact: 9375122444</div>
+                </div>
+                <h3>SS Steel Luxury Glass Railings</h3>
+                <div class="image-options">
+                    
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0049.jpg" alt="Glass Railing Option 2">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0048.jpg" alt="Glass Railing Option 3">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0031.jpg" alt="Glass Railing Option 4">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0021.jpg" alt="Glass Railing Option 5">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0017.jpg" alt="Glass Railing Option 6">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0015.jpg" alt="Glass Railing Option 7">
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="image-container" onclick="showContactNumber(this)">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0029.jpg" alt="SS Steel Doors">
+                    <div class="contact-number">Contact: 9375122444</div>
+                </div>
+                <h3>SS Steel Doors</h3>
+                <div class="image-options">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0065.jpg" alt="Door Option 1">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0041.jpg" alt="Door Option 2">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0040.jpg" alt="Door Option 3">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0018.jpg" alt="Door Option 4">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0056.jpg" alt="Door Option 5">
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="image-container" onclick="showContactNumber(this)">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0022.jpg" alt="SS Steel Windows">
+                    <div class="contact-number">Contact: 9375122444</div>
+                </div>
+                <h3>SS Steel Windows</h3>
+                <div class="image-options">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0067.jpg" alt="Window Option 1">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0058.jpg" alt="Window Option 2">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0054.jpg" alt="Window Option 3">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0052.jpg" alt="Window Option 4">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0044.jpg" alt="Window Option 5">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0042.jpg" alt="Window Option 6">
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="image-container" onclick="showContactNumber(this)">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0063.jpg" alt="Steel Swings">
+                    <div class="contact-number">Contact: 9375122444</div>
+                </div>
+                <h3>Steel Swings</h3>
+                <div class="image-options">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0064.jpg" alt="Swing Option 1">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0028.jpg" alt="Swing Option 2">
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="image-container" onclick="showContactNumber(this)">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0061.jpg" alt="Pot Stand">
+                    <div class="contact-number">Contact: 9375122444</div>
+                </div>
+                <h3>Pot Stand</h3>
+                <div class="image-options">
+                    <!-- Add images if available -->
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="image-container" onclick="showContactNumber(this)">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0053.jpg" alt="Temple Works">
+                    <div class="contact-number">Contact: 9375122444</div>
+                </div>
+                <h3>Temple Works</h3>
+                <div class="image-options">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0066.jpg" alt="Temple Work Option 1">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0057.jpg" alt="Temple Work Option 2">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0055.jpg" alt="Temple Work Option 3">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0046.jpg" alt="Temple Work Option 4">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0038.jpg" alt="Temple Work Option 5">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0026.jpg" alt="Temple Work Option 6">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0025.jpg" alt="Temple Work Option 7">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0024.jpg" alt="Temple Work Option 8">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0020.jpg" alt="Temple Work Option 9">
+                </div>
+            </div>
+            <div class="product-card">
+                <div class="image-container" onclick="showContactNumber(this)">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0032.jpg" alt="Steel Traditional Charpai">
+                    <div class="contact-number">Contact: 9375122444</div>
+                </div>
+                <h3>Steel Traditional Charpai</h3>
+                <div class="image-options">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0036.jpg" alt="Charpai Option 1">
+                    <img src="C:\Users\HP\Desktop\sd/IMG-20241228-WA0059.jpg" alt="Charpai Option 2">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="contact" class="contact-info">
+        <h2>Contact Us</h2>
+        <p>For inquiries or more information , feel free to get in touch with us using the details below.</p>
+        <p class="phone-numbers">Phone: 9375122444 | 9374122444</p>
+        <p>Email: contact@sdsteel.com</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 SD STEEL. All rights reserved.</p>
+        <a href="#contact">Contact Us</a>
+    </footer>
+
+    <script>
+        function showContactNumber(element) {
+            const contactNumber = element.querySelector('.contact-number');
+            contactNumber.style.display = contactNumber.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
+</body>
+</html>
